@@ -35,7 +35,14 @@ export class CreateProducts1663185802300 implements MigrationInterface {
                     {
                         name: 'updated_at',
                         type: 'timestamp',
-                        default: 'now()',
+                        default: null,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'deleted_at',
+                        type: 'timestamp',
+                        default: null,
+                        isNullable: true,
                     },
                 ],
             }),
