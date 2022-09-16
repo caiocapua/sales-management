@@ -1,5 +1,6 @@
 import handlebars from 'handlebars';
 import fs from 'fs';
+import { IParseMailTemplate } from './interfaces/IMailTemplate';
 
 export class HandlebarsMailTEmplate {
     public async parse({
