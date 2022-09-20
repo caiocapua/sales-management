@@ -1,3 +1,4 @@
+import { OrdersProducts } from '../../orders/entities/OrdersProducts';
 import {
     Entity,
     PrimaryGeneratedColumn,
@@ -5,6 +6,7 @@ import {
     CreateDateColumn,
     UpdateDateColumn,
     DeleteDateColumn,
+    OneToMany,
 } from 'typeorm';
 
 @Entity('tb_products')
@@ -20,6 +22,9 @@ export class Product {
 
     @Column()
     quantity: number;
+
+    @OneToMany(() => OrdersProducts, order_products => order_products.product)
+    order_products: OrdersProducts[];
 
     @CreateDateColumn({ name: 'created_at' })
     createdAt: Date;

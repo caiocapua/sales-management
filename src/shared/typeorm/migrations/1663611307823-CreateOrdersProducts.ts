@@ -1,0 +1,51 @@
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
+
+export class CreateOrdersProducts1663611307823 implements MigrationInterface {
+    public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.createTable(
+            new Table({
+                name: 'tb_orders_products',
+                columns: [
+                    {
+                        name: 'id',
+                        type: 'uuid',
+                        isPrimary: true,
+                        generationStrategy: 'uuid',
+                        default: 'uuid_generate_v4()',
+                    },
+                    {
+                        name: 'price',
+                        type: 'decimal',
+                        precision: 10,
+                        scale: 2,
+                    },
+                    {
+                        name: 'quantity',
+                        type: 'decimal',
+                    },
+                    {
+                        name: 'created_at',
+                        type: 'timestamp',
+                        default: 'now()',
+                    },
+                    {
+                        name: 'updated_at',
+                        type: 'timestamp',
+                        default: null,
+                        isNullable: true,
+                    },
+                    {
+                        name: 'deleted_at',
+                        type: 'timestamp',
+                        default: null,
+                        isNullable: true,
+                    },
+                ],
+            }),
+        );
+    }
+
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable('tb_orders_products');
+    }
+}
