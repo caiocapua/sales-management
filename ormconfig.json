@@ -4,7 +4,7 @@
     "port": "5432",
     "username": "postgres",
     "password": "docker",
-    "database": "sales",
+    "database": "salesv2",
     "entities": ["./src/modules/**/entities/*.ts"],
     "migrations": ["./src/shared/typeorm/migrations/*.ts"],
     "cli": {
